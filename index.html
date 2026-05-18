@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craftivo — Paul Omolo | Growth Systems Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0A1628;
+    --paper: #F7F5EE;
+    --accent: #C9A84C;
+    --accent-light: #F0E8D0;
+    --mid: #5A6A7E;
+    --border: #D0D8E8;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: #0A1628;
+    color: var(--white);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .header-noise {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+
+  .logo span { color: #C9A84C; }
+
+  .header-nav {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .header-nav a {
+    color: rgba(180,200,230,0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .header-nav a:hover { color: var(--white); }
+
+  .header-hero {
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: #C9A84C;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: rgba(200,215,235,0.7);
+    max-width: 560px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .header-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 2.5rem 4rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .stat-item { }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-num span { color: #C9A84C; }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: rgba(150,175,210,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+  }
+
+  .header-contact a {
+    color: rgba(150,175,210,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: block;
+    text-align: right;
+    transition: color 0.2s;
+  }
+
+  .header-contact a:hover { color: var(--white); }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INTRO STRIP ─── */
+  .intro-strip {
+    background: var(--white);
+    border-top: 3px solid var(--accent);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .intro-strip h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .intro-strip p {
+    color: var(--mid);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--mid);
+  }
+
+  /* ─── CASE STUDIES ─── */
+  .cases-section { background: var(--paper); }
+
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    margin-bottom: 2px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+
+  .case-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+
+  .case-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .case-inner.reverse { direction: rtl; }
+  .case-inner.reverse > * { direction: ltr; }
+
+  .case-content {
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .case-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    border: 1px solid var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  .case-year {
+    font-size: 0.75rem;
+    color: var(--mid);
+  }
+
+  .case-client {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-subtitle {
+    font-size: 0.85rem;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .case-body {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .metrics-row {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .metric { }
+  .metric-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .metric-num span { color: #C9A84C; }
+
+  .metric-desc {
+    font-size: 0.7rem;
+    color: var(--mid);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.2rem;
+  }
+
+  .case-visual {
+    background: #0A1628;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .case-visual-inner {
+    padding: 3rem;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .visual-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(140,170,210,0.55);
+    margin-bottom: 2rem;
+  }
+
+  .before-after {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .ba-box {
+    flex: 1;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid rgba(41,82,163,0.4);
+    border-radius: 4px;
+  }
+
+  .ba-box.highlight { background: var(--accent); border-color: #C9A84C; }
+
+  .ba-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(150,175,210,0.6); margin-bottom: 0.5rem; }
+  .ba-box.highlight .ba-label { color: rgba(255,255,255,0.7); }
+  .ba-value { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--white); }
+  .ba-arrow { color: rgba(130,160,200,0.5); font-size: 1.2rem; }
+
+  .funnel-bars { display: flex; flex-direction: column; gap: 0.5rem; }
+  .fbar-row { display: flex; align-items: center; gap: 0.75rem; }
+  .fbar-label { font-size: 0.7rem; color: rgba(150,175,210,0.6); min-width: 80px; }
+  .fbar-track { flex: 1; height: 6px; background: rgba(27,58,107,0.5); border-radius: 3px; overflow: hidden; }
+  .fbar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+  .fbar-val { font-size: 0.75rem; color: rgba(255,255,255,0.6); min-width: 50px; text-align: right; }
+
+  .visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .vg-box {
+    background: rgba(41,82,163,0.15);
+    border: 1px solid rgba(27,58,107,0.5);
+    border-radius: 4px;
+    padding: 1.25rem;
+  }
+
+  .vg-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--white); }
+  .vg-num span { color: #C9A84C; }
+  .vg-desc { font-size: 0.68rem; color: rgba(140,170,210,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
+
+  .roas-visual {
+    text-align: center;
+  }
+
+  .roas-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 6rem;
+    color: #C9A84C;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .roas-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(150,175,210,0.6);
+  }
+
+  .roas-sub {
+    font-size: 0.85rem;
+    color: rgba(130,160,200,0.5);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-section {
+    background: #0A1628;
+    color: var(--white);
+  }
+
+  .testimonials-section .section-label { color: #C9A84C; }
+  .testimonials-section .section-label::before { background: var(--accent); }
+  .testimonials-section .section-title { color: var(--white); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    margin-top: 3rem;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .testimonial-card {
+    background: #0A1628;
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .quote-mark {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: #C9A84C;
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.92rem;
+    color: rgba(200,215,235,0.75);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .author-role {
+    font-size: 0.72rem;
+    color: rgba(140,170,210,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .testimonial-placeholder {
+    font-size: 0.85rem;
+    color: rgba(100,140,190,0.4);
+    font-style: italic;
+    border: 1px dashed rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ─── CAPABILITIES ─── */
+  .capabilities-section { background: var(--white); }
+
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+
+  .cap-item {
+    background: var(--white);
+    padding: 2.5rem;
+  }
+
+  .cap-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.85rem;
+    color: #C9A84C;
+    margin-bottom: 1rem;
+  }
+
+  .cap-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cap-desc {
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  /* ─── OFFER ─── */
+  .offer-section { background: var(--paper); }
+
+  .offer-card {
+    background: #0A1628;
+    color: var(--white);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+    border-top: 3px solid var(--accent);
+  }
+
+  .offer-price-block { }
+  .offer-price-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(140,170,210,0.55);
+    margin-bottom: 0.5rem;
+  }
+
+  .offer-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .offer-price span { color: #C9A84C; }
+  .offer-price-sub { font-size: 0.85rem; color: rgba(140,170,210,0.55); margin-top: 0.5rem; }
+
+  .offer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .offer-desc { font-size: 0.9rem; color: rgba(200,215,235,0.7); line-height: 1.7; }
+
+  .offer-includes { }
+  .offer-includes-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    margin-bottom: 1.5rem;
+  }
+
+  .include-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    align-items: flex-start;
+  }
+
+  .include-item::before {
+    content: '✓';
+    color: #C9A84C;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .not-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+    align-items: flex-start;
+  }
+
+  .not-item::before {
+    content: '—';
+    flex-shrink: 0;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--accent);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 4rem;
+  }
+
+  .cta-section .section-title { color: var(--white); }
+
+  .cta-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 480px;
+    margin: 1rem auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .cta-btn.primary {
+    background: var(--white);
+    color: #C9A84C;
+  }
+
+  .cta-btn.secondary {
+    border: 1px solid rgba(255,255,255,0.4);
+    color: var(--white);
+  }
+
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0A1628;
+    color: rgba(130,160,200,0.5);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+  }
+
+  footer .logo { font-size: 1.1rem; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.2s ease both; }
+  .header-stats { animation: fadeUp 0.6s 0.3s ease both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    section, header .header-top, header .header-hero, header .header-footer { padding-left: 2rem; padding-right: 2rem; }
+    .intro-strip { grid-template-columns: 1fr; gap: 2rem; }
+    .case-inner, .case-inner.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .case-visual { min-height: 300px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .caps-grid { grid-template-columns: 1fr 1fr; }
+    .offer-card { grid-template-columns: 1fr; }
+    .header-stats { gap: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .caps-grid { grid-template-columns: 1fr; }
+    .metrics-row { flex-wrap: wrap; gap: 1.5rem; }
+    .header-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="header-noise"></div>
+  <div class="header-top">
+    <div class="logo">Craftivo<span>.</span></div>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#offer">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="header-hero">
+    <div class="hero-eyebrow">Paul Omolo · Craftivo · Nairobi, Kenya (Remote – EMEA)</div>
+    <h1 class="hero-title">Growth systems<br>that <em>compound.</em></h1>
+    <p class="hero-desc">Performance marketing and growth infrastructure for SMEs ready to stop guessing and start scaling. Paid acquisition, campaign systems, and measurable results across Meta, Google, and LinkedIn.</p>
+  </div>
+
+  <div class="header-footer">
+    <div class="header-stats">
+      <div class="stat-item">
+        <div class="stat-num">5<span>x</span></div>
+        <div class="stat-label">ROAS delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$63<span>k</span></div>
+        <div class="stat-label">Revenue in one month</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">82<span>%</span></div>
+        <div class="stat-label">CPA reduction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8<span>+</span></div>
+        <div class="stat-label">Years operating</div>
+      </div>
+    </div>
+    <div class="header-contact">
+      <a href="mailto:paulomolo2001@gmail.com">paulomolo2001@gmail.com</a>
+      <a href="https://www.linkedin.com/in/paulmbomolo" target="_blank">linkedin.com/in/paulmbomolo</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ INTRO STRIP ═══ -->
+<div class="intro-strip">
+  <div>
+    <h2>Not just campaigns.<br>Systems that outlast the contract.</h2>
+  </div>
+  <div>
+    <p>I build and manage growth infrastructure for businesses that are already spending on marketing but aren't sure it's working. My approach is data-first and systems-led — campaigns that are structured to compound, not just run.</p>
+    <div class="tag-row">
+      <span class="tag">Meta Ads</span>
+      <span class="tag">Google Ads</span>
+      <span class="tag">LinkedIn Ads</span>
+      <span class="tag">Full-Funnel Strategy</span>
+      <span class="tag">Performance Reporting</span>
+      <span class="tag">ABM</span>
+      <span class="tag">CRO</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CASE STUDIES ═══ -->
+<section class="cases-section" id="work">
+  <div class="section-label">Selected Work</div>
+  <div class="section-title">Results that speak<br>for themselves.</div>
+
+  <!-- CASE 1: SAVI -->
+  <div class="case-card" style="margin-top: 3rem;">
+    <div class="case-inner">
+      <div class="case-content">
+        <div>
+          <div class="case-meta">
+            <span class="case-tag">Retail · Ongoing</span>
+            <span class="case-year">2023 — 2026</span>
+          </div>
+          <h3 class="case-client">Savi Accessories</h3>
+          <p class="case-subtitle">Nairobi, Kenya · Fashion Accessories Retail</p>
+          <p class="case-body">Savi's founder was running ads reactively — switching campaigns off based on gut feel rather than data, losing spend and momentum in the process. I built the initial campaign architecture and coached her through reading performance data herself. The result: she achieved a 5x ROAS running the account independently. She has since returned to bring me in formally — because she now understands performance well enough to know when a specialist adds more value than self-management.</p>
+        </div>
+        <div class="metrics-row">
+          <div class="metric">
+            <div class="metric-num">5<span>x</span></div>
+            <div class="metric-desc">ROAS Year-to-Date 2026</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">3<span>yr</span></div>
+            <div class="metric-desc">Ongoing relationship</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">↑<span></span></div>
+            <div class="metric-desc">Account handed back</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-visual">
+        <div class="case-visual-inner">
+          <div class="visual-label">ROAS Performance · 2026</div>
+          <div class="roas-visual">
+            <div class="roas-big">5×</div>
+            <div class="roas-label">Return on Ad Spend · YTD 2026</div>
+            <div class="roas-sub">Achieved through systematic campaign structure and data-led optimisation — running independently before account handback</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2: COPIA -->
+  <div class="case-card">
+    <div class="case-inner reverse">
+      <div class="case-content">
+        <div>
+          <div class="case-meta">
+            <span class="case-tag">E-commerce · Full Funnel</span>
+            <span class="case-year">2020 — 2021</span>
+          </div>
+          <h3 class="case-client">Copia Kenya</h3>
+          <p class="case-subtitle">Nairobi, Kenya · FMCG E-commerce Platform</p>
+          <p class="case-body">Sole digital marketing operator managing a KES 1M–1.8M monthly budget across Meta and Google. The challenge: a highly price-sensitive consumer base, massive product catalogue, and constant operational volatility. I built a 7-pillar full-funnel strategy — smart budgeting, sales team integration, data-driven product focus, dedicated retention campaigns, scalable Google reach, behaviour-shifting bundles, and weekly Facebook Live shopping sessions. The Christmas campaign, which I built from concept through cross-department execution, generated KES 7M in a single month — 40% above target.</p>
+        </div>
+        <div class="metrics-row">
+          <div class="metric">
+            <div class="metric-num">$63<span>k</span></div>
+            <div class="metric-desc">Revenue · Dec 2020</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">15<span>%</span></div>
+            <div class="metric-desc">MoM Revenue Growth</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">46<span>%</span></div>
+            <div class="metric-desc">Peak Retention Rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-visual" style="background:#111;">
+        <div class="case-visual-inner">
+          <div class="visual-label">Full-Funnel Performance · Q4 2020</div>
+          <div class="funnel-bars">
+            <div class="fbar-row">
+              <span class="fbar-label">MoM Growth</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:75%;"></div></div>
+              <span class="fbar-val">15%</span>
+            </div>
+            <div class="fbar-row">
+              <span class="fbar-label">New Customers</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:100%;"></div></div>
+              <span class="fbar-val">+20% YoY</span>
+            </div>
+            <div class="fbar-row">
+              <span class="fbar-label">Retention Rate</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:92%;"></div></div>
+              <span class="fbar-val">35–46%</span>
+            </div>
+            <div class="fbar-row">
+              <span class="fbar-label">Target Beat</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:100%;background:#fff;"></div></div>
+              <span class="fbar-val">+40%</span>
+            </div>
+          </div>
+          <div class="visual-grid" style="margin-top: 2rem;">
+            <div class="vg-box">
+              <div class="vg-num">KES 1.8<span>M</span></div>
+              <div class="vg-desc">Monthly Budget Managed</div>
+            </div>
+            <div class="vg-box">
+              <div class="vg-num">KES 7<span>M</span></div>
+              <div class="vg-desc">Peak Month Revenue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 3: DINER EN BLANC -->
+  <div class="case-card">
+    <div class="case-inner">
+      <div class="case-content">
+        <div>
+          <div class="case-meta">
+            <span class="case-tag">Events · Lead Generation</span>
+            <span class="case-year">2020</span>
+          </div>
+          <h3 class="case-client">Dîner en Blanc Nairobi</h3>
+          <p class="case-subtitle">Nairobi, Kenya · Premium Ticketed Event (International Franchise)</p>
+          <p class="case-body">With under a month to event day and a tight budget of KES 50–60k, I built and launched a multi-angle paid campaign across Facebook and Instagram designed to create exclusivity and urgency. Creative rotated across four distinct experience angles — food, dress, venue, and social moment — each targeting different audience entry points via website, lead form, and WhatsApp. The campaign generated KES 200k+ in directly attributed online revenue — a conservative figure, as additional conversions through WhatsApp and direct calls were not captured in platform attribution.</p>
+        </div>
+        <div class="metrics-row">
+          <div class="metric">
+            <div class="metric-num">4–5<span>x</span></div>
+            <div class="metric-desc">Attributed ROI</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">KES 200<span>k+</span></div>
+            <div class="metric-desc">Attributed Revenue</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">30<span>d</span></div>
+            <div class="metric-desc">Campaign Window</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-visual" style="background:#0A0A0A;">
+        <div class="case-visual-inner">
+          <div class="visual-label">Campaign ROI · Single Month</div>
+          <div class="visual-grid">
+            <div class="vg-box">
+              <div class="vg-num" style="font-size:1.3rem;">KES 50–60<span>k</span></div>
+              <div class="vg-desc">Total Ad Spend</div>
+            </div>
+            <div class="vg-box">
+              <div class="vg-num" style="font-size:1.3rem;">KES 200<span>k+</span></div>
+              <div class="vg-desc">Attributed Revenue</div>
+            </div>
+            <div class="vg-box">
+              <div class="vg-num">30<span>d</span></div>
+              <div class="vg-desc">Campaign Window</div>
+            </div>
+            <div class="vg-box" style="background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.3);">
+              <div class="vg-num">4–5<span>x</span></div>
+              <div class="vg-desc">Return on Spend</div>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem;font-size:0.72rem;color:rgba(255,255,255,0.2);line-height:1.6;">True ROI estimated higher — WhatsApp and direct call conversions not captured in platform attribution.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4: US VIRTUAL OFFICE - ANONYMISED -->
+  <div class="case-card">
+    <div class="case-inner reverse">
+      <div class="case-content">
+        <div>
+          <div class="case-meta">
+            <span class="case-tag">B2B · International</span>
+            <span class="case-year">Confidential</span>
+          </div>
+          <h3 class="case-client">U.S. Virtual Office Provider</h3>
+          <p class="case-subtitle">United States · B2B Services · Client details confidential</p>
+          <p class="case-body">Inherited an underperforming Meta Ads account with a volatile CPA of $580 — unsustainable for the business model. Over 5 months, I rebuilt the account from the ground up: shifted to a video-first creative strategy, implemented a rigorous A/B testing framework across hooks, angles, and offers, rebuilt campaign structure with consolidated ad sets and standardised naming, applied city-level segmentation for high-value US markets, and ran daily KPI reviews with 48-hour optimisation cycles. CPA stabilised in the $100–150 target range. The account reached 312 purchases in its peak month.</p>
+        </div>
+        <div class="metrics-row">
+          <div class="metric">
+            <div class="metric-num">82<span>%</span></div>
+            <div class="metric-desc">CPA Reduction</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">312</div>
+            <div class="metric-desc">Peak Monthly Purchases</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">5<span>mo</span></div>
+            <div class="metric-desc">Turnaround Period</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-visual" style="background:#091525;">
+        <div class="case-visual-inner">
+          <div class="visual-label">CPA Turnaround · 5 Months</div>
+          <div class="before-after">
+            <div class="ba-box">
+              <div class="ba-label">Before</div>
+              <div class="ba-value">$580</div>
+              <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:0.3rem;">CPA · March</div>
+            </div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-box highlight">
+              <div class="ba-label">After</div>
+              <div class="ba-value">$102</div>
+              <div style="font-size:0.65rem;color:rgba(255,255,255,0.7);margin-top:0.3rem;">CPA · July</div>
+            </div>
+          </div>
+          <div class="funnel-bars">
+            <div class="fbar-row">
+              <span class="fbar-label">March CPA</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:100%;background:rgba(255,100,100,0.5);"></div></div>
+              <span class="fbar-val">$580</span>
+            </div>
+            <div class="fbar-row">
+              <span class="fbar-label">May CPA</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:55%;"></div></div>
+              <span class="fbar-val">$137</span>
+            </div>
+            <div class="fbar-row">
+              <span class="fbar-label">July CPA</span>
+              <div class="fbar-track"><div class="fbar-fill" style="width:18%;"></div></div>
+              <span class="fbar-val">$102</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section-label">Client Voices</div>
+  <div class="section-title">What clients say.</div>
+
+  <div class="testimonials-grid">
+    <!-- Savi -->
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">He advised and helped us execute on our digital ads which was critical in growing our brand, so much that we still engage him on occasion to this day. Even when we evolved to using our website, he's been of good guidance on how to maneuver around it with Google ads. I would highly recommend him to anyone looking to engage his services.</p>
+      <div class="testimonial-author">
+        <span class="author-name">Musavi Rhoda — Founder, Savi Accessories Limited</span>
+        <span class="author-role">Fashion Accessories · Nairobi · info@saviaccessories.com</span>
+      </div>
+    </div>
+    <!-- Copia -->
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Paul has worked diligently and loyally through his employment period. His contribution has been essential to the success of Copia Kenya Ltd. During his tenure, Paul has added value to our organization, and we would highly recommend him to any prospective employer.</p>
+      <div class="testimonial-author">
+        <span class="author-name">Anne Mwihaki Wanjithi — HR Manager, Copia Kenya Limited</span>
+        <span class="author-role">FMCG E-commerce · Tatu City Industrial Park, Nairobi</span>
+      </div>
+    </div>
+    <!-- Diner -->
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">He consistently delivered on his core mandate of driving sales for our high ticket events even when deadlines were tight. Paul's advertising campaigns not only generated leads — they gave us a 4x return on our ads spend. Dependability is Paul's biggest strength. He always goes over and above our expectations and scope of work.</p>
+      <div class="testimonial-author">
+        <span class="author-name">LeAnne Kimani — Director, Aster Eden Planners</span>
+        <span class="author-role">Events · Dîner en Blanc Nairobi Franchise · 5-year relationship</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAPABILITIES ═══ -->
+<section class="capabilities-section" id="capabilities">
+  <div class="section-label">What I Bring</div>
+  <div class="section-title">Ten years of<br>building what works.</div>
+  <div class="caps-grid">
+    <div class="cap-item">
+      <div class="cap-num">01</div>
+      <div class="cap-title">Paid Acquisition</div>
+      <div class="cap-desc">Meta, Google, and LinkedIn campaign architecture from scratch. Audience segmentation, creative testing frameworks, bid strategy, and budget pacing for sustainable performance.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">02</div>
+      <div class="cap-title">Full-Funnel Strategy</div>
+      <div class="cap-desc">Awareness through retention — campaign systems designed for the whole customer journey, not just the first click. Proven across e-commerce, events, B2B, and retail.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">03</div>
+      <div class="cap-title">Performance Analysis</div>
+      <div class="cap-desc">GA4, Looker Studio, UTM architecture, and platform-native reporting. Weekly dashboards that give clients a clear picture of what's working and what to do next.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">04</div>
+      <div class="cap-title">Creative Direction</div>
+      <div class="cap-desc">Brief writing, hook testing, angle development, and creative rotation strategy. I don't produce assets — I direct the strategy that determines which creative wins.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">05</div>
+      <div class="cap-title">ABM & B2B Pipeline</div>
+      <div class="cap-desc">Account-based marketing strategy and pipeline development for B2B clients. LinkedIn Ads, targeted outreach frameworks, and lead qualification systems.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">06</div>
+      <div class="cap-title">Systems Thinking</div>
+      <div class="cap-desc">BSc Information Systems & Technology (USIU-Africa). I build marketing infrastructure that works as a system — repeatable, documented, and transferable to your team.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OFFER ═══ -->
+<section class="offer-section" id="offer">
+  <div class="section-label">How We Work Together</div>
+  <div class="section-title">One offer. Fixed scope.<br>No surprises.</div>
+
+  <div class="offer-card">
+    <div class="offer-price-block">
+      <div class="offer-price-label">Starting from</div>
+      <div class="offer-price">$900<span>/mo</span></div>
+      <div class="offer-price-sub">3-month minimum · fixed scope · no custom pricing</div>
+      <div class="offer-name">The Growth Systems Retainer</div>
+      <div class="offer-desc">A fixed-scope monthly engagement that builds and manages your paid acquisition infrastructure. Campaigns live by end of week 2. Weekly reporting every Friday. One strategy call per month. You always know exactly where you stand.</div>
+    </div>
+    <div class="offer-includes">
+      <div class="offer-includes-title">What's included every month</div>
+      <div class="include-item">Rapid audit and one-page strategy brief (week 1)</div>
+      <div class="include-item">Campaigns live on up to 2 channels by week 2</div>
+      <div class="include-item">Weekly performance report every Friday</div>
+      <div class="include-item">Monthly strategy call — 45 min, recorded</div>
+      <div class="include-item">Async Slack or WhatsApp (48-hour response SLA)</div>
+      <div class="include-item">End-of-quarter playbook — documented and yours to keep</div>
+
+      <div style="margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(100,140,190,0.4);">Not included</div>
+      <div class="not-item">Creative production or asset design</div>
+      <div class="not-item">Website or landing page development</div>
+      <div class="not-item">More than 2 ad platforms simultaneously</div>
+      <div class="not-item">Ad spend (client funds platforms directly)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section" id="contact">
+  <div class="section-label" style="color:rgba(255,255,255,0.6);justify-content:center;">
+    <span style="background:rgba(255,255,255,0.3);height:1px;width:2rem;display:inline-block;"></span>
+    Let's Talk
+  </div>
+  <div class="section-title">Ready to stop guessing<br>and start compounding?</div>
+  <p class="cta-desc">I take on a small number of clients at a time to protect delivery quality. If the timing is right, let's have a 20-minute conversation.</p>
+  <div class="cta-links">
+    <a href="mailto:paulomolo2001@gmail.com" class="cta-btn primary">Send an Email</a>
+    <a href="https://www.linkedin.com/in/paulmbomolo" class="cta-btn secondary" target="_blank">Connect on LinkedIn</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="logo">Craftivo<span style="color:var(--accent);">.</span></div>
+  <div>Paul Omolo · Nairobi, Kenya · Remote — EMEA · paulomolo2001@gmail.com</div>
+  <div>© 2026</div>
+</footer>
+
+</body>
+</html>
